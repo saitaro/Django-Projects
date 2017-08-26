@@ -1,0 +1,12 @@
+h1 {
+    color: black;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+}
+
+table, td {
+    border: 1px solid black;
+}

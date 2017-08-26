@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Our dear users!</title>
+    <link rel="stylesheet" href= {% static "css/my4style.css" %}>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Please sign up here!</h2>
+            <br>
+            <form method="POST">
+                {{form.as_p}}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+{% comment %} <h1>The list of users:</h1>
+{% if userlist %}
+<ol>
+{% for mail in maillist %}
+    <li>User Info
+        <ul>
+            <li>First Name: {{mail.owner.first_name}}</li>
+            <li>Last Name: {{mail.owner.last_name}}</li>
+            <li>Email: {{mail.url}}</li>
+        </ul>
+    </li>
+{% endfor %} 
+</ol>
+{% else %}
+<p>No data.</p>
+{% endif %} {% endcomment %}

@@ -1,0 +1,35 @@
+body {
+	background: #0f2438;
+	border: 90px solid #7c9dbc;
+	border-top: 0px;
+	margin: -10px;
+	margin-top: 30px;
+	height: 95%;
+	color: white;
+	padding: 2%;
+	text-align: center;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 1.5em;
+}
+
+h1 {
+	;
+}
+
+#Lobster {
+	font-family: Lobster, sans-serif;
+}
+
+p {
+	padding: 5%;
+}
+
+.button {
+	padding: 15px;
+	font-family: 'Fresca';
+	font-size: 1.7em;
+	background: yellow;
+	border-radius: 15px;
+}
+
+

@@ -6,4 +6,6 @@ app_name = 'basic'
 urlpatterns = [
     url(r'^register/$', views.register, name='register'),
 ]
+
+
 a=1

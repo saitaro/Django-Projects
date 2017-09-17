@@ -2,14 +2,18 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
-class UserInfo(models.Model):
-
-    user = models.OneToOneField(User)
-
-    portfolio = models.URLField(blank=True)
-
-    profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+class School(models.Model):
+    name = models.CharField(max_length=256)
+    principal = models.CharField(max_length=256)
+    location = models.CharField(max_length=256)
 
     def __str__(self):
-        return self.user.username
+        return self.name
+
+class Student(models.Model):
+    name = models.CharField(max_length=256)
+    age = models.PositiveIntegerField()
+    school = models.ForeignKey(School, related_name='students')
+    
+    def __str__(self):
+        return self.name

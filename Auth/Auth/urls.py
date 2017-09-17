@@ -18,7 +18,7 @@ from django.contrib import admin
 from basic import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^basic/', include('basic.urls')),
+    url(r'^basic/', include('basic.urls'), name='basic'),
 ]

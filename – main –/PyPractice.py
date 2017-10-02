@@ -1,23 +1,22 @@
-import unittest
+from tkinter import *
 
-class Account:
-    def __init__(self, amount=None):
-        self.amount = amount
+root = Tk()
+root.title("Hello World!")
+root.geometry('300x40')
 
-    @property
-    def am(self):
-        return self.amount if self.amount else None
+k=0
+def button_clicked():
+    global k
+    k+=1
+    print(k)
 
-    @am.setter
-    def am(self, value):
-        self.amount = value
+def close():
+    root.destroy()
+    root.quit()
 
-    @am.deleter
-    def am(self):
-        self.amount = None
+button = Button(root, text="Press Me", command=button_clicked)
+button.pack(fill=BOTH)
 
-me = Account(23)
-# me.am = 11
-del me.am
+root.protocol('WM_DELETE_WINDOW', close)
 
-print(me.amount)
+root.mainloop()

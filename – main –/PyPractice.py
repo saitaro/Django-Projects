@@ -1,22 +1,19 @@
-from tkinter import *
 
-root = Tk()
-root.title("Hello World!")
-root.geometry('300x40')
+class sim:
+    a = 1
+    b = 2
 
-k=0
-def button_clicked():
-    global k
-    k+=1
-    print(k)
+    def ok(self):
+        a = 1
+        b = 2   
+        return '{} is not {}'.format(a, b)
 
-def close():
-    root.destroy()
-    root.quit()
+class bim(sim):
+    c = 3
+    def m(self, k):
+        print(k)
 
-button = Button(root, text="Press Me", command=button_clicked)
-button.pack(fill=BOTH)
 
-root.protocol('WM_DELETE_WINDOW', close)
+cord = bim()
 
-root.mainloop()
+print(cord.ok())

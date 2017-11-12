@@ -16,9 +16,16 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from basic import views
+from . import settings
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^basic/', include('basic.urls'), name='basic'),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

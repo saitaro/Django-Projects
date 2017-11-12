@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Henrik Kröger <hedwig@riseup.net>, 2016
+# Johannes Spielmann <j@spielmannsolutions.com>, 2014
+# Wasilis Mandratzis-Walz, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Wagtail\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-11 13:57+0100\n"
+"PO-Revision-Date: 2016-02-07 13:52+0000\n"
+"Last-Translator: Henrik Kröger <hedwig@riseup.net>\n"
+"Language-Team: German (http://www.transifex.com/torchbox/wagtail/language/"
+"de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Choose a root page"
+msgstr "Wählen Sie eine Ursprungs-Seite"
+
+msgid "Choose a different root page"
+msgstr "Eine andere Ursprungs-Seite auswählen"
+
+msgid "Site"
+msgstr "Webseite"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Site name"
+msgstr "Name der Webseite"
+
+msgid "Root page"
+msgstr "Ursprungsseite"
+
+msgid "Default?"
+msgstr "Standard?"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Sites"
+msgstr "Webseiten"

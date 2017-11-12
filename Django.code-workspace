@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "– main –"
+		},
+		{
+			"path": "Auth"
+		},
+		{
+			"path": "Wagtest"
+		},
+		{
+			"path": "Todo"
+		},
+		{
+			"path": "Virma"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

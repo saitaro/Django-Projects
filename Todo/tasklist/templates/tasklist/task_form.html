@@ -1,0 +1,12 @@
+{% extends 'tasklist/base.html' %}
+
+{% block main %}
+<h1>Добавить новую покупку:</h1>
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-primary" value="Добавить">
+</form>
+{% endblock main %}
+    

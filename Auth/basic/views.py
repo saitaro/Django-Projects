@@ -11,7 +11,6 @@ from django.views.generic import (
     UpdateView
 )
     
-
 class SchoolListView(ListView):
     model = models.School
     context_object_name = 'schools'
@@ -35,7 +34,6 @@ class RegisterView(TemplateView):
     template_name = 'basic/registration.html'
 
 class SchoolCreateView(CreateView):
-    # template_name = 'basic/school_form.html'
     fields = (
         'name',
         'principal',

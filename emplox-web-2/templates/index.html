@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--
+Au<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!--
+Django CMS Themes at django-cms-themes.com, 
+Copyright (c) 2017 Nuwa Information Co., Ltd, All Rights Reserved.
+
+Licensed under the license you purchased,
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at our web site.
+
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!--
+CMS page attribute
+Slug: {% page_attribute "slug" %}
+Changed_date: {% page_attribute "changed_date" %}
+Changed_by: {% page_attribute "changed_by" %}
+-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'js/FixTemplate.js' %}"></script>
+<meta name="comment" content="The template was modified by Nuwainfo.com">
+<meta name="description" content="{% page_attribute 'meta_description' %}">
+<title>{% page_attribute 'page_title' %}</title>
+<link href="{% static 'css/bootstrap.css' %}" media="all" rel="stylesheet" type="text/css">
+<link href="{% static 'css/style.css' %}" media="all" rel="stylesheet" type="text/css">
+<link href="{% static 'css/chocolat.css' %}" media="screen" rel="stylesheet" type="text/css">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="text/html; charset=%SOUP-ENCODING%" http-equiv="Content-Type">
+<meta content="Emplox Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" name="keywords">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<link href="css/flexslider.css" media="screen" rel="stylesheet" type="text/css">
+<!--scrolling-->
+<script src="{% static 'js/move-top.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/easing.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});
+	</script>
+<!--scrolling-->
+{% render_block 'css' %}
+</head>
+<body>
+{% cms_toolbar %}
+<!--top-header-->
+<div class="top-header" id="home">
+<div class="container">
+<div class="logo">
+<h1>{% placeholder 'index-h1-1' or %}<a href="/">Emplox</a>{% endplaceholder %}</h1>
+</div>
+<div class="top-menu">
+<span class="menu">{% placeholder 'index-span-1' or %}<img alt="" src="{% static 'images/nav-icon.png' %}">{% endplaceholder %}</span>
+{% placeholder 'index-ul-1' or %}<ul>
+<li><a class="scroll" href="#home">Home</a></li>
+<li><a class="scroll" href="#about">About</a></li>
+<li><a class="scroll" href="#service">Service</a></li>
+<li><a class="scroll" href="#gallery">Gallery</a></li>
+<li><a class="scroll" href="#blog">Blog</a></li>
+<li><a class="scroll" href="#contact">Contact</a></li>
+</ul>{% endplaceholder %}
+<!-- script-for-menu -->
+<script>					
+							$("span.menu").click(function(){
+								$(".top-menu ul").slideToggle("slow" , function(){
+								});
+							});
+				 </script>
+<!-- script-for-menu -->
+</div>
+</div>
+</div>
+<!--header-->
+<div class="header">
+<div class="container">
+<div class="banner-info">
+<h2>{% placeholder 'index-h2-1' or %}Etiam rhoncus diam eget nibh porttitor gravida.{% endplaceholder %}</h2>
+<p>{% placeholder 'index-p-1' or %}Praesent a tortor ipsum. In ornare nibh urna, non hendrerit leo lacinia non. Proin malesuada blandit ex, 
+				 vitae placerat purus placerat non. Pellentesque habitant morbi tristique senectus et netus et malesuada 
+				 fames ac turpis egestas.{% endplaceholder %}</p>
+<!--CMS:index-a-8-->{% placeholder 'index-a-8' or %}<a href="#">Click</a>{% endplaceholder %}
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<!--Service-->
+<div class="service" id="service">
+<div class="container">
+<h3>{% placeholder 'index-h3-1' or %}Services{% endplaceholder %}</h3>
+<div class="service-grids">
+<div class="icon-grids">
+<div class="col-md-6 futr-grid futr1">
+<div class="icon-pic">
+<div class="icon text-center">
+<span aria-hidden="true" class="glyphicon glyphicon-phone">{% placeholder 'index-span-2' or %}{% endplaceholder %}</span>
+</div>
+</div>
+<div class="icon-info">
+<h4>{% placeholder 'index-h4-1' or %}<a href="#">Vestibulum sagittis</a>{% endplaceholder %}</h4>
+<p>{% placeholder 'index-p-2' or %}Aliquam erat volutpat. Nam egestas dapibus pellentesque. Nunc non luctus neque, non aliquet tortor. Suspendisse in faucibus dolor, commodo malesuada ipsum. Cras vel facilisis mi. In malesuada felis eu volutpat consequat.{% endplaceholder %}</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="col-md-6 futr-grid">
+<div class="icon-pic">
+<div class="icon text-center">
+<span aria-hidden="true" class="glyphicon glyphicon-thumbs-up">{% placeholder 'index-span-3' or %}{% endplaceholder %}</span>
+</div>
+</div>
+<div class="icon-info">
+<h4>{% placeholder 'index-h4-2' or %}<a href="#">Vestibulum sagittis</a>{% endplaceholder %}</h4>
+<p>{% placeholder 'index-p-3' or %}Aliquam erat volutpat. Nam egestas dapibus pellentesque. Nunc non luctus neque, non aliquet tortor. Suspendisse in faucibus dolor, commodo malesuada ipsum. Cras vel facilisis mi. In malesuada felis eu volutpat consequat.{% endplaceholder %}</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="icon-grids grids2">
+<div class="col-md-6 futr-grid futr1">
+<div class="icon-pic">
+<div class="icon text-center">
+<span aria-hidden="true" class="glyphicon glyphicon-picture">{% placeholder 'index-span-4' or %}{% endplaceholder %}</span>
+</div>
+</div>
+<div class="icon-info">
+<h4>{% placeholder 'index-h4-3' or %}<a href="#">Vestibulum sagittis</a>{% endplaceholder %}</h4>
+<p>{% placeholder 'index-p-4' or %}Aliquam erat volutpat. Nam egestas dapibus pellentesque. Nunc non luctus neque, non aliquet tortor. Suspendisse in faucibus dolor, commodo malesuada ipsum. Cras vel facilisis mi. In malesuada felis eu volutpat consequat.{% endplaceholder %}</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="col-md-6 futr-grid">
+<div class="icon-pic">
+<div class="icon text-center">
+<span aria-hidden="true" class="glyphicon glyphicon-user">{% placeholder 'index-span-5' or %}{% endplaceholder %}</span>
+</div>
+</div>
+<div class="icon-info">
+<h4>{% placeholder 'index-h4-4' or %}<a href="#">Vestibulum sagittis</a>{% endplaceholder %}</h4>
+<p>{% placeholder 'index-p-5' or %}Aliquam erat volutpat. Nam egestas dapibus pellentesque. Nunc non luctus neque, non aliquet tortor. Suspendisse in faucibus dolor, commodo malesuada ipsum. Cras vel facilisis mi. In malesuada felis eu volutpat consequat.{% endplaceholder %}</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+<!--about-->
+<div class="about" id="about">
+<div class="about-left"></div>
+<div class="about-right">
+<h3>{% placeholder 'index-h3-2' or %}About Us{% endplaceholder %}</h3>
+<h4>{% placeholder 'index-h4-5' or %}Vivamus ac mi ut tortor elementum venenatis.{% endplaceholder %}</h4>
+<p>{% placeholder 'index-p-6' or %}Mauris vestibulum pulvinar urna id ultricies. Etiam volutpat interdum mi in aliquet. Pellentesque vel tincidunt sapien.
+		 Suspendisse potenti. Nam sed scelerisque est. Vestibulum non leo ligula. Donec aliquet viverra semper. Donec sed est ac sem suscipit vehicula.
+		 Mauris nec nunc enim. Etiam aliquet risus et nunc rhoncus facilisis. Maecenas nec blandit ex. Nam nec dolor in nisl elementum malesuada. 
+		 Fusce vitae eleifend magna. Curabitur tincidunt tincidunt vulputate.Etiam mollis nibh risus, a faucibus arcu ultricies eu. Morbi 
+		 consectetur, metus vel efficitur luctus, nisi nulla vestibulum arcu, at rhoncus ligula ligula non nisl. Cras porttitor vestibulum nulla.{% endplaceholder %}</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<!--gallery -->
+<script src="{% static 'js/jquery.chocolat.js' %}"></script>
+<!--light-box-files -->
+<script type="text/javascript">
+		$(function() {
+			$('.moments-bottom a').Chocolat();
+		});
+		</script>
+<!--gallery js-->
+<div class="gallery" id="gallery">
+<div class="container">
+<h3>{% placeholder 'index-h3-3' or %}Gallery{% endplaceholder %}</h3>
+<div class="gallery-info">
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-13-->{% placeholder 'index-a-13' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img15.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img15.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-14-->{% placeholder 'index-a-14' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img10.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img10.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-15-->{% placeholder 'index-a-15' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img11.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img11.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-16-->{% placeholder 'index-a-16' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img12.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img12.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-17-->{% placeholder 'index-a-17' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img13.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img13.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-18-->{% placeholder 'index-a-18' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img14.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img14.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-19-->{% placeholder 'index-a-19' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img9.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img9.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-20-->{% placeholder 'index-a-20' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img16.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img16.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="col-md-4 galry-grids moments-bottom">
+<!--CMS:index-a-21-->{% placeholder 'index-a-21' or %}<a class="b-link-stripe b-animate-go" href="{% static 'images/img17.jpg' %}">
+<img alt="" class="img-responsive" src="{% static 'images/img17.jpg' %}">
+<div class="b-wrapper">
+<span class="b-animate b-from-left    b-delay03 ">
+<img alt="" class="img-responsive" src="{% static 'images/e.png' %}">
+</span>
+</div>
+</a>{% endplaceholder %}
+</div>
+<div class="clearfix"> </div>
+</div>
+</div>
+</div>
+<!---->
+<div class="blog" id="blog">
+<div class="container">
+<h3>{% placeholder 'index-h3-4' or %}Blog{% endplaceholder %}</h3>
+<div class="blog-grids">
+<div class="col-md-6 blog-grid">
+<!--CMS:index-a-22-->{% placeholder 'index-a-22' or %}<a href="#"><img alt="" class="img-responsive" src="{% static 'images/b1.jpg' %}"></a>{% endplaceholder %}
+<h4>{% placeholder 'index-h4-6' or %}<a href="#">Etiam luctus velit ac cursus lobortis.</a>{% endplaceholder %}</h4>
+<span>{% placeholder 'index-span-15' or %}Mar 12 | 2015{% endplaceholder %}</span>
+<p>{% placeholder 'index-p-7' or %}Aenean eget eleifend nulla. Nunc vel nisi mi. Ut faucibus ornare tempus. Donec non mi et sem convallis tincidunt ac in purus. Nullam tincidunt orci elit, vitae vulputate sapien ullamcorper et. Sed ut est purus. Duis consectetur suscipit ullamcorper. Nam dictum nisl odio, eget maximus ante interdum iaculis urna sapien.{% endplaceholder %}</p>
+</div>
+<div class="col-md-6 blog-grid">
+<!--CMS:index-a-24-->{% placeholder 'index-a-24' or %}<a href="#"><img alt="" class="img-responsive" src="{% static 'images/b2.jpg' %}"> </a>{% endplaceholder %}
+<h4>{% placeholder 'index-h4-7' or %}<a href="#">Etiam luctus velit ac cursus lobortis.</a>{% endplaceholder %}</h4>
+<span>{% placeholder 'index-span-16' or %}Mar 12 | 2015{% endplaceholder %}</span>
+<p>{% placeholder 'index-p-8' or %}Aenean eget eleifend nulla. Nunc vel nisi mi. Ut faucibus ornare tempus. Donec non mi et sem convallis tincidunt ac in purus. Nullam tincidunt orci elit, vitae vulputate sapien ullamcorper et. Sed ut est purus. Duis consectetur suscipit ullamcorper. Nam dictum nisl odio, eget maximus ante interdum iaculis urna sapien.{% endplaceholder %}</p>
+</div>
+<div class="clearfix"></div>
+<div class="middleblog-grid blog-grid">
+<!--CMS:index-a-26-->{% placeholder 'index-a-26' or %}<a href="#"><img alt="" class="img-responsive" src="{% static 'images/b3.jpg' %}"> </a>{% endplaceholder %}
+<h4>{% placeholder 'index-h4-8' or %}<a href="#">Etiam luctus velit ac cursus lobortis.</a>{% endplaceholder %}</h4>
+<span>{% placeholder 'index-span-17' or %}Mar 12 | 2015{% endplaceholder %}</span>
+<p>{% placeholder 'index-p-9' or %}Aenean eget eleifend nulla. Nunc vel nisi mi. Ut faucibus ornare tempus. Donec non mi et sem convallis tincidunt ac in purus. Nullam tincidunt orci elit, vitae vulputate sapien ullamcorper et. Sed ut est purus. Duis consectetur suscipit ullamcorper. Nam dictum nisl odio, eget maximus ante interdum iaculis urna sapien.{% endplaceholder %}</p>
+</div>
+</div>
+</div>
+</div>
+<!---->
+<div class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6632.248000703498!2d151.265683!3d-33.7832959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12abc7edcbeb07%3A0x5017d681632bfc0!2sManly+Vale+NSW+2093%2C+Australia!5e0!3m2!1sen!2sin!4v1433329298259" style="border:0"></iframe>
+</div>
+<!---->
+<div class="contact" id="contact">
+<div class="container">
+<h3>{% placeholder 'index-h3-5' or %}Contact{% endplaceholder %}</h3>
+<div class="touch-top">
+<div class="col-md-8 touch-left">
+{% placeholder 'index-form-1' or %}<form>
+<input onblur="if (this.value == '') {this.value = 'Name';}" onfocus="this.value = '';" type="text" value="Name">
+<input onblur="if (this.value == '') {this.value = 'Email';}" onfocus="this.value = '';" type="text" value="Email">
+<textarea onblur="if (this.value == '') {this.value = 'Message';}" onfocus="this.value = '';"></textarea>
+<input type="submit" value="SUBMIT">
+</form>{% endplaceholder %}
+</div>
+<div class="col-md-4 touch-right">
+<div class="touch-right-top">
+<span class="add">{% placeholder 'index-span-18' or %} {% endplaceholder %}</span>
+<h4>{% placeholder 'index-h4-9' or %}123 MAIN STREET,<label>CITY, COUNTRY</label>{% endplaceholder %}</h4>
+</div>
+<div class="touch-right-top">
+<span class="mail">{% placeholder 'index-span-19' or %} {% endplaceholder %}</span>
+<p>{% placeholder 'index-p-10' or %}<a href="mailto:example@email.com">EMAIL@DOMAIN.COM</a>{% endplaceholder %}</p>
+</div>
+<div class="touch-right-top">
+<span class="num">{% placeholder 'index-span-20' or %} {% endplaceholder %}</span>
+<p>{% placeholder 'index-p-11' or %}+0123 456 789{% endplaceholder %}</p>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="container">
+<p>{% placeholder 'index-p-12' or %}Copyrights &#169; 2015 Emplox. All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a>{% endplaceholder %}</p>
+<div class="social">
+<!--CMS:index-a-30-->{% placeholder 'index-a-30' or %}<a href="#"><i class="facebook"></i></a>{% endplaceholder %}
+<!--CMS:index-a-31-->{% placeholder 'index-a-31' or %}<a href="#"><i class="twitter"></i></a>{% endplaceholder %}
+<!--CMS:index-a-32-->{% placeholder 'index-a-32' or %}<a href="#"><i class="dribble"></i></a>{% endplaceholder %}
+<!--CMS:index-a-33-->{% placeholder 'index-a-33' or %}<a href="#"><i class="google"></i></a>{% endplaceholder %}
+<!--CMS:index-a-34-->{% placeholder 'index-a-34' or %}<a href="#"><i class="youtube"></i></a>{% endplaceholder %}
+</div>
+<div class="arrow">
+<!--CMS:index-a-35-->{% placeholder 'index-a-35' or %}<a class="scroll" href="#home"><img alt="" src="{% static 'images/top.png' %}"></a>{% endplaceholder %}
+</div>
+</div>
+</div>
+<!---->
+<script type="text/javascript">
+		$(document).ready(function() {
+				/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+				*/
+		$().UItoTop({ easingType: 'easeOutQuart' });
+});
+</script>
+<!--CMS:index-a-36-->{% placeholder 'index-a-36' or %}<a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>{% endplaceholder %}
+<!---->
+{% render_block 'js' %}
+</body>
+</html>

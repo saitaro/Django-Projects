@@ -25,13 +25,13 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = '+_1rd-m=3ple)sgo-oa=el&beu3@+!vmrj58m2ze240iuwj&wx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 INTERNAL_IPS = [
-    '127.0.0.1'
+    # '127.0.0.1'
 ]
 
 ALLOWED_HOSTS = [
-    'localhost'
+    # 'localhost'
 ]
 
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'basic',
 )
 
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware'
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'Auth.urls'

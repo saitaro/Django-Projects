@@ -9,4 +9,3 @@ urlpatterns = (
     url(r'^delete/(?P<pk>\d+)/$', views.GroceryDelete.as_view(), name='delete'),
     url(r'^detail/(?P<pk>\d+)/$', views.GroceryDetail.as_view(), name='detail'),
 )
-

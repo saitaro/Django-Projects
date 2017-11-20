@@ -30,5 +30,5 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^tasklist/', include('tasklist.urls')),
-    url(r'^$', include('tasklist.urls'))
+    url(r'^', include('tasklist.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

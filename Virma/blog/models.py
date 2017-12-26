@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 
-
+#region boo
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
@@ -22,10 +22,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
+#endregion
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comments')
+    post = models.ForeignKey('blog.Post', related_name='comments')                 
     author = models.CharField(max_length=200)
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now())
@@ -40,3 +40,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+    

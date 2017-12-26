@@ -13,4 +13,3 @@ class UserProfileInfo(forms.ModelForm):
     class Meta():
         model = UserProfileInfo
         fiels = ('portfolio_site','profile_pic')
-

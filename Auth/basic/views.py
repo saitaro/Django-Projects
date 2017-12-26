@@ -11,17 +11,6 @@ from django.views.generic import (
     UpdateView
 )
     
-class SchoolListView(ListView):
-    model = models.School
-    context_object_name = 'schools'
-
-class SchoolDetailView(DetailView):
-    model = models.School
-    context_object_name = 'school_detail'
-    template_name = 'basic/school_detail.html'
-
-# Create your views here.
-
 class IndexView(TemplateView):
     template_name = 'basic/main.html'
 
@@ -33,6 +22,10 @@ class IndexView(TemplateView):
 class RegisterView(TemplateView):
     template_name = 'basic/registration.html'
 
+
+    #### School ####
+
+
 class SchoolCreateView(CreateView):
     fields = (
         'name',
@@ -40,6 +33,11 @@ class SchoolCreateView(CreateView):
         'location'
     )
     model = models.School
+
+class SchoolDetailView(DetailView):
+    model = models.School
+    context_object_name = 'school_detail'
+    template_name = 'basic/school_detail.html'
 
 class SchoolUpdateView(UpdateView):
     fields = (
@@ -50,4 +48,35 @@ class SchoolUpdateView(UpdateView):
 
 class SchoolDeleteView(DeleteView):
     model = models.School
+    success_url = reverse_lazy("basic:list")
+
+class SchoolListView(ListView):
+    model = models.School
+    context_object_name = 'schools'
+
+
+    ##### City ####
+
+
+class CityCreateView(CreateView):
+    fields = (
+        'name',
+        'continent'
+    )
+    model = models.City
+
+class CityDetailView(DeleteView):
+    model = models.City
+    context_object_name = 'school_detail'
+    template_name = 'basic/school_detail.html'
+
+class CityUpdateView(UpdateView):
+    fields = (
+        'name',
+        'continent'
+    )
+    model = models.City
+
+class CityDeleteview(DeleteView):
+    model = models.City
     success_url = reverse_lazy("basic:list")

@@ -1,6 +1,0 @@
-*.sqlite3
-static
-media
-*.pyc
-node_modules
-npm-debug.log

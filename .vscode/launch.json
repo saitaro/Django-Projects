@@ -98,7 +98,8 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceRoot}/manage.py",
+            // C:\Users\NewVici\Dropbox\=Django=\–PROJECTS\Tiki\Tiker
+            "program": "${workspaceRoot}/–PROJECTS/Tiki/Tiker/manage.py",
             "cwd": "${workspaceRoot}",
             "args": [
                 "runserver",

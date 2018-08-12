@@ -26,6 +26,11 @@ def users(request):
     
     return render(request, 'AppTwo/users.html', {'form': form})
 
+def newpage(request):
+
+    NewDict = {'lusie': 'red', 'jordan': 'blue', 'maiden': 'green'}
+
+    return render(request, 'AppTwo/mynewpage.html', context=NewDict)
 
     # userlist = {
         

@@ -21,6 +21,4 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url('^basic/', include('basic.urls')),
-    url('^logout/$', views.user_logout, name='logout'),
-    url('special/', views.special, name='special')
 ]

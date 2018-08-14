@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block mainblock %}
+  <h1>Welcome to the list of all the schools!</h1>
+  <br>
+  <ol>
+    {% for school in schools %}
+    <li class="h5">
+      <h5 class="lead"><a href="{{ school.id }}">{{school.name}}</a></h5>
+    </li>
+    {% endfor %}
+  </ol>
+{% endblock mainblock %}

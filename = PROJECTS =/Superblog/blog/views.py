@@ -17,3 +17,6 @@ class PostListView(ListView):
 
     def func_1(self):
         1
+
+    def func_2(self):
+        2

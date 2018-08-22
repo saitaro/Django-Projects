@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import (TemplateView,
-                                  ListView,
-                                 )
+from django.views.generic import (
+    TemplateView,
+    ListView,
+)
 
 # Create your views here.
 
@@ -17,12 +18,5 @@ class PostListView(ListView):
     def func_1(self):
         1
 
-    def func_2(self):
-        2
-        
-    def func_3(self):
-        3
-    
-    def new_func(self):
-        new
-        
+    def woo(self):
+        woo

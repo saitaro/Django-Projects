@@ -4,10 +4,10 @@ import re
 # 'www.trendybelly.com.log'
 # 'nginx.log'
 
-log = 'www.trendybelly.com.log'
+log = 'nginx.log'
 
 log_path = join(dirname(abspath(__file__)), log)
-parsed_path = join(dirname(abspath(__file__)), log + ' 500 requests.txt')
+parsed_path = join(dirname(abspath(__file__)), log + ' HTTP 500.txt')
 
 with open(log_path, 'r') as log, open(parsed_path, 'w') as results:
     uniques = set()

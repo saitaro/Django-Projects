@@ -15,7 +15,7 @@
             <h2>Please sign up here!</h2>
             <br>
             <form method="POST">
-                {{form.as_p}}
+                {{ form.as_p }}
                 {% csrf_token %}
                 <input type="submit" class="btn btn-primary" value="Submit">
             </form>

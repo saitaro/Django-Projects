@@ -14,3 +14,4 @@ class PostListView(ListView):
 
     def get_queryset(self):
         return Post.objects.filter(published_date__lte=timezone.now().order_by('-published_date'))
+

@@ -26,7 +26,8 @@ def users(request):
     
     return render(request, 'AppTwo/users.html', {'form': form})
 
-def newpage(request):
+def newpage(request, ok):
+    print(ok)
 
     NewDict = {'lusie': 'red', 'jordan': 'blue', 'maiden': 'green'}
 

@@ -1,20 +1,19 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse_lazy 
-from django.views.generic import (
-    TemplateView, 
-    ListView, 
-    CreateView,
-    DetailView,
-    UpdateView,
-    DeleteView
-)
+from django.views.generic import (  TemplateView, 
+                                    ListView, 
+                                    CreateView,
+                                    DetailView,
+                                    UpdateView,
+                                    DeleteView
+                                )
 from . import models
 
 # Create your views here.
 
 class IndexView(TemplateView):
     template_name = 'index.html'
-
+    
 class SchoolListView(ListView):
     model = models.School
     context_object_name = 'schools'

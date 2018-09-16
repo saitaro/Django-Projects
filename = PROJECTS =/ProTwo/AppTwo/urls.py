@@ -5,5 +5,5 @@ app_name = 'AppTwo'
 
 urlpatterns = [
     url(r'^$', views.help, name='help'),
-    url(r'^doom/', views.newpage, name='doom')
+    url(r'^doom(?P<ok>\d{3})/', views.newpage, name='doom')
 ]

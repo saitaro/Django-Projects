@@ -9,10 +9,10 @@ log = 'nginx.log'
 log_path = join(dirname(abspath(__file__)), log)
 parsed_path = join(dirname(abspath(__file__)), log + ' HTTP 500.txt')
 
-with open(log_path, 'r') as log, open(parsed_path, 'w') as results:
-    uniques = set()
-    get_200_count = 0
+uniques = set()
+get_200_count = 0
 
+with open(log_path, 'r') as log, open(parsed_path, 'w') as results:
     for line in log:
         if 'GET ' in line and ' 200 ' in line:
             get_200_count += 1
@@ -23,9 +23,9 @@ with open(log_path, 'r') as log, open(parsed_path, 'w') as results:
         if search:
             uniques.add(search.group('ip'))
 
-    print(get_200_count)
+uniques_string = str(uniques).replace("'", "").strip('{}')
 
-    uniques_string = str(uniques).replace("'", "").strip('{}')
-    print(uniques_string)
+print(get_200_count)
+print(uniques_string)
 
 

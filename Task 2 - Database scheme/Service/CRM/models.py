@@ -27,7 +27,7 @@ class Skill(models.Model):
 class Master(models.Model):
     name = models.CharField(max_length=127)
     company = models.ForeignKey(Company, null=True, on_delete=models.SET_NULL,
-                                 related_name='masters')
+                                related_name='masters')
     skills = models.ManyToManyField(Skill, related_name='masters')
 
     def __str__(self):

@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "==1.11"
+djangorestframework = "*"
+pygments = "*"
 
 [dev-packages]
 

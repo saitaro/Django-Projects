@@ -1,8 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers, serializers, viewsets
-from CRM.views import (UserViewSet, CompanyViewSet,
-                       MasterViewSet, SkillViewSet, OrderViewSet)
+from CRM.views import (UserViewSet, CompanyViewSet, MasterViewSet, 
+                       SkillViewSet, OrderViewSet)
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)

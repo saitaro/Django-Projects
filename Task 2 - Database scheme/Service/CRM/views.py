@@ -24,6 +24,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     filter_backends = (PermissionFilterBackend,)
     # filterset_fields = '__all__'
+    f = 1
 
 
 class UserViewSet(viewsets.ModelViewSet):

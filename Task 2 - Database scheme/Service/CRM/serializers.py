@@ -25,7 +25,7 @@ class SkillSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Skill
         fields = '__all__'
-
+        
 
 class MasterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -36,7 +36,7 @@ class Master(models.Model):
         return self.user.username
 
     class Meta:
-        verbose_name_plural = 'masterz'
+        verbose_name_plural = 'masters'
 
 # @receiver(post_save, sender=Master)
 # def add_to_group(sender, instance, created, **kwargs):

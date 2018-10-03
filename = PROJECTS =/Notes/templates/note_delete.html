@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block main %}
+  <div class="container col-lg-3">
+    <h3 class="lead">Are you sure you want to delete the note?</h3>
+    <br>
+    <form method='post'>
+      {% csrf_token %}
+      <input type='submit' class="btn btn-lg btn-danger ml-4" value="Yes, delete">
+    </form>
+    <br>
+    <hr>
+    <a href="{% url 'notes:notelist' %}" class="btn btn-info ml-4">Cancel</a>
+  </div>
+  <script>
+      $(".listtext").hide()
+    </script>
+{% endblock main %}

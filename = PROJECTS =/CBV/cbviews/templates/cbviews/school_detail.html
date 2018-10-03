@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block mainblock %}
+  <h1>{{ school_detail.name }} School</h1>
+  <hr>
+  <h5 class="display-4">School details:</h5>
+  <br>
+  <p><span class="font-weight-bold">Name</span>: <span class="lead">{{ school_detail.name }}</span></p>
+  <p><span class="font-weight-bold">Principal</span>: <span class="lead">{{ school_detail.principal }}</span></p>
+  <p><span class="font-weight-bold">Location</span>: <span class="lead">{{ school_detail.location }}</span></p>
+  <!-- <br> -->
+  <hr>
+  <p class="display-4">Students:</p>
+  {% if school_detail.students.all %}
+  {% for student in school_detail.students.all %}
+    <p>{{ student.name }}, {{ student.age }} years old</p>
+  {% endfor %}
+  {% else %}
+  <p class="lead">None.</p>
+  {% endif %}
+  <hr>
+  <div class="container">
+    <a href="{% url 'cbviews:update' pk=school_detail.pk %}" class="btn btn-success">Update</a>
+    <br>
+    <br>
+    <form action="{% url 'cbviews:delete' pk=school_detail.pk %}">
+      <input type="submit" class="btn btn-danger btn-sm" value="Delete school">
+    </form>
+  </div>
+{% endblock mainblock %}
+
+  

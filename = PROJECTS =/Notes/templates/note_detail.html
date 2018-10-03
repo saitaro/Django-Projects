@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block main %}
+<div class="container">
+  <a href="{% url 'notes:notelist' %}" class="btn btn-lg btn-outline-secondary ml-1 px-4">
+    Back
+  </a>
+  <hr>
+  <div class="card text-dark">
+    <div class="card-header h5 bg-warning">{{ note.name }}</div>
+    <div class="card-body">
+      <p class="card-text lead">{{ note.body }}</p>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  $(".listtext").hide()
+</script>
+{% endblock main %}

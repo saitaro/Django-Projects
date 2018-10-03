@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+{% load filterm %}
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">	
+	<title>My Tickets!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="card fixed-top bg-light">
+			<form class="card-block pl-5 mt-4 font-weight-bold align-self-center" method="POST">
+				{% csrf_token %}
+				{{form.as_p}} 
+				<input class="btn btn-primary pl-3 btn-block" type="submit" value="Add">
+			</form>
+			<br>
+			<div class="card-footer bg-warning pb-1">
+				<h2 class="text-dark text-left pl-5 ml-3">List of tickets:</h2>
+			</div>
+		</div>
+		<br>
+		<div class="pt-5 mt-5">
+			<div class="mt-5 mb-5 pt-5 pb-3">
+				{% for item in items reversed %}
+				<li class="alert alert-success red"><span class="lead font-weight-bold">{{ item.task|boom:"Forge!" }} – </span>{{item.date}} &times;</li>
+				{% endfor %}
+				<p class="lead text-center">– End –</p>
+			</div>
+		</div>
+		<a class="fixed-bottom bg-dark p-2 text-white display-5" href="{% url 'admin:index' %}">admin</a>
+	</div>
+
+</body>
+	<script>
+		$("li").click(function(){
+			$(this).fadeOut();
+		})
+	</script>
+</html>

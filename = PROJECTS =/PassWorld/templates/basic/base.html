@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a href="{% url 'index' %}" class="navbar-brand text-warning">SuperSite</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#those">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="those">
+        <ul class="navbar-nav ml-auto mr-3">
+          <li class="nav-item">
+            <a href="{% url 'admin:index' %}" class="nav-link">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'basic:register' %}" class="nav-link">Register</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'basic:logout' %}" class="nav-link">Выйти</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'basic:user_login' %}" class="nav-link">Войти</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a href="" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Contact</a>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    {% block main %} {% endblock %}
+  </div>
+</body>
+
+</html>

@@ -23,14 +23,12 @@ class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     filter_backends = (PermissionFilterBackend,)
-    # filterset_fields = '__all__'
-    f = 1
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-
+    
 
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()

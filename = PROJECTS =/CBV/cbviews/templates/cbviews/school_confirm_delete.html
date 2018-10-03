@@ -1,0 +1,15 @@
+{% extends 'cbviews/cbviews_base.html' %}
+
+{% block mainblock %}
+<h1 class="display-4">Delete {{ school.name }}?</h1>
+<br>
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <input type="submit" class="btn btn-danger btn-lg" value="Delete">
+    <hr>
+  </div>
+</form>
+<a href="{% url 'cbviews:detail' pk=school.pk %}"><button class="btn btn-success btn-sm">Cancel</button></a> 
+{% endblock mainblock %}
+  

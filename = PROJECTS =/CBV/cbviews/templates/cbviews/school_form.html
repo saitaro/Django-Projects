@@ -1,0 +1,22 @@
+{% extends 'cbviews/cbviews_base.html' %}
+
+
+{% block mainblock %}
+<h1 class="display-4">
+  {% if not form.instance.pk %}
+    Create School
+  {% else %}
+    Update School
+  {% endif %}
+</h1>
+<hr>
+<form method="POST">
+  <div class="form-group">
+    {% csrf_token %}
+    {{ form.as_p }}
+  </div>
+  <hr>
+  <button class="btn btn-success" type="submit">Submit change</button>
+</form>
+{% endblock mainblock %}
+  

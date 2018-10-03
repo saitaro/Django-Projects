@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% load widget_tweaks %}
+{% block main %}
+
+<div class="container">
+  <a href="{% url 'notes:notelist' %}" class="btn btn-lg btn-outline-secondary ml-3 px-4 mb-4">Back</a>
+  <hr>
+  <div class="card-body">
+    <h3 class="h2">Create a new Note!</h3>
+    <br>
+    <form method="POST" class="pt-0">
+      <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class='btn btn-primary btn-lg' value="Submit">
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<script>
+  $(".listtext").hide()
+</script>
+{% endblock %}
+
+<!-- {{ form.name|add_class:"form-control"|attr:"placeholder:Name" }}
+  <br>
+  {{ form.body|add_class:"form-control"|attr:"placeholder:Remind me..." }}
+  <br> -->
+<!-- {{ form.name }}
+  <br>
+  {{ form.body }}
+  <br> -->

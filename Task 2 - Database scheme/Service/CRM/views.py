@@ -3,8 +3,8 @@ from django.contrib.auth.models import User, Group
 from .models import *
 from rest_framework import viewsets, filters
 from django_filters import rest_framework
-from .serializers import (UserSerializer, GroupSerializer, CompanySerializer,
-                          MasterSerializer, SkillSerializer, OrderSerializer)
+from .serializers import (UserSerializer, CompanySerializer, MasterSerializer, 
+                          SkillSerializer, OrderSerializer)
 
 
 class PermissionFilterBackend(filters.BaseFilterBackend):
@@ -28,11 +28,6 @@ class OrderViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    
-
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
 
 
 class CompanyViewSet(viewsets.ModelViewSet):

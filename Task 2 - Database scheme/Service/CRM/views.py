@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from .models import *
 from rest_framework import viewsets, filters
 from django_filters import rest_framework

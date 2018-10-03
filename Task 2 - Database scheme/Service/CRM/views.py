@@ -12,7 +12,6 @@ class PermissionFilterBackend(filters.BaseFilterBackend):
         user = request.user
         if user.is_authenticated:
             if user.is_staff:
-                print(dir(queryset))
                 return queryset.all()
             elif Master.objects.filter(user=user).exists():
                 return queryset.filter(executor__user__username=user)

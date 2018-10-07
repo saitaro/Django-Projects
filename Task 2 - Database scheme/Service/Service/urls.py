@@ -15,7 +15,7 @@ router.register(r'orders', OrderViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^api-auth/', include('rest_framework.urls'), name='api'),
 ]
 
 

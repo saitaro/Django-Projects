@@ -19,7 +19,7 @@ class Company(models.Model):
 
 
 class Skill(models.Model):
-    name = models.CharField(max_length=127)
+    name = models.CharField(max_length=127, blank=False)
 
     def __str__(self):
         return self.name
@@ -27,7 +27,6 @@ class Skill(models.Model):
 
 class Master(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # name = models.CharField(max_length=64)
     skills = models.ManyToManyField(Skill, related_name='masters')
     company = models.ForeignKey(Company, null=True, on_delete=models.SET_NULL,
                                 related_name='masters')
@@ -49,7 +48,7 @@ class Order(models.Model):
     service = models.ForeignKey(Skill, related_name='orders', on_delete=models.CASCADE)
     executor = models.ForeignKey(Master, related_name='jobs', null=True, on_delete=models.SET_NULL)
     creation_date = models.DateTimeField(auto_now_add=True)
-    execution_date = models.DateTimeField()
+    execution_date = models.DateTimeField(null=True)
     
     def set_execution_date(self, date):
         self.execution_date = date

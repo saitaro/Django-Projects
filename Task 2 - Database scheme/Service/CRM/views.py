@@ -10,6 +10,7 @@ from .serializers import (UserSerializer, CompanySerializer, MasterSerializer,
 class PermissionFilterBackend(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         user = request.user
+        # print(dir(user))
         if user.is_staff:
             return queryset.all()
         elif Master.objects.filter(user=user).exists():
@@ -38,6 +39,8 @@ class MasterViewSet(viewsets.ModelViewSet):
     queryset = Master.objects.all()
     serializer_class = MasterSerializer
 
+    def get_master(self):
+        return Master.objects.get(pk=self.pk)
 
 class SkillViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()

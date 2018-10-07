@@ -26,7 +26,8 @@ class MasterSerializer(serializers.HyperlinkedModelSerializer):
         model = Master
         fields = '__all__'
 
-class OrderSerializer(serializers.HyperlinkedModelSerializer):
+
+class OrderSerializer(serializers.HyperlinkedModelSerializer): # ModelSerializer
     class Meta:
         model = Order
         exclude = ('creation_date',)

@@ -76,7 +76,6 @@ class OrdersListTestCase(APITestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, orders.data)
         
-
     def test_unauthorized_access(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 403)

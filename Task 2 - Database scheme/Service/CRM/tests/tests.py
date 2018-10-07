@@ -1,6 +1,7 @@
 from django.urls import reverse
 from django.contrib.auth.models import User
 from re import search
+from ..serializers import OrderSerializer
 from ..models import Master, Order
 from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
@@ -71,8 +72,9 @@ class OrdersListTestCase(APITestCase):
         request = factory.get(self.url)
         force_authenticate(request, user=user)
         response = view(request)
+        orders = OrderSerializer(Order.objects.all(), many=True, context={'request': request})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), 4)
+        self.assertEqual(response.data, orders.data)
         
 
     def test_unauthorized_access(self):

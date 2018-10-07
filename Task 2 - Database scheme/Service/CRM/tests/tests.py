@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.contrib.auth.models import User
 from re import search
-from ..serializers import OrderSerializer, MasterSerializer
+from ..serializers import OrderSerializer, MasterSerializer, UserSerializer
 from ..models import Master, Order
 from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
@@ -50,17 +50,14 @@ class OrdersListTestCase(APITestCase):
             else:
                 user_url = reverse('user-detail', args=(user.pk,))
                 user_request = factory.get(user_url)
-                user_view = UserViewSet.as_view({'get': 'retrieve'})
-                force_authenticate(user_request, user=user)
-                user_response = user_view(user_request, pk=user.pk)
-                user_link = user_response.data['url']
+                user_data = UserSerializer(user, context={'request': user_request}).data
 
                 force_authenticate(request, user=user)
                 response = view(request)
                 self.assertEqual(response.status_code, 200)
 
                 for order in response.data:
-                    self.assertEqual(order['client'], user_link)
+                    self.assertEqual(order['client'], user_data['url'])
 
     def test_admin_access(self):
         view = OrderViewSet.as_view({'get': 'list'})

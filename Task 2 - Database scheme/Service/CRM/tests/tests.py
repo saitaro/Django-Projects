@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.contrib.auth.models import User
 from re import search
-from ..serializers import OrderSerializer
+from ..serializers import OrderSerializer, MasterSerializer
 from ..models import Master, Order
 from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
@@ -27,19 +27,16 @@ class OrdersListTestCase(APITestCase):
         view = OrderViewSet.as_view({'get': 'list'})
 
         for master in Master.objects.all():
-            master_url = reverse('master-detail', args=(master.pk,))
-            master_request = factory.get(master_url)
-            master_view = MasterViewSet.as_view({'get': 'retrieve'})
-            force_authenticate(master_request, user=master.user)
-            master_response = master_view(master_request, pk=master.pk)
-            master_link = master_response.data['url']
+            master_detail = reverse('master-detail', args=(master.pk,))
+            master_request = factory.get(master_detail)
+            master_data = MasterSerializer(master, context={'request': master_request}).data
 
             force_authenticate(request, user=master.user)
             response = view(request)
             self.assertEqual(response.status_code, 200)
             self.assertEqual(len(response.data), 2)
             for order in response.data:
-                self.assertEqual(order['executor'], master_link)
+                self.assertEqual(order['executor'], master_data['url'])
 
     def test_clients_orders(self):
         factory = APIRequestFactory()

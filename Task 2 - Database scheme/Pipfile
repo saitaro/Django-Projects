@@ -9,6 +9,7 @@ pygments = "*"
 django = "==1.11"
 django-filter = "*"
 djangorestframework-filters = "*"
+factory-boy = "*"
 
 [dev-packages]
 

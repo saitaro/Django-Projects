@@ -7,7 +7,7 @@ from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
 from rest_framework.test import (APITestCase, force_authenticate,
                                  APIRequestFactory)
-doo
+
 
 class OrdersListTestCase(APITestCase):
     url = reverse('order-list')

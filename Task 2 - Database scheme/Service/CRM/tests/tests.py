@@ -1,12 +1,12 @@
-from django.urls import reverse
 from django.contrib.auth.models import User
+from django.urls import reverse
 from re import search
-from ..serializers import OrderSerializer, MasterSerializer, UserSerializer
 from ..models import Master, Order
+from ..serializers import MasterSerializer, OrderSerializer, UserSerializer
 from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
-from rest_framework.test import (APITestCase, force_authenticate,
-                                 APIRequestFactory)
+from rest_framework.test import (APIRequestFactory, APITestCase,
+                                 force_authenticate)
 
 
 class OrdersListTestCase(APITestCase):
@@ -73,6 +73,6 @@ class OrdersListTestCase(APITestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 403)
         self.assertEqual(response.json()['detail'], 
-                        'Authentication credentials were not provided.')
+                         'Authentication credentials were not provided.')
 
 

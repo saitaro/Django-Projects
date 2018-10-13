@@ -1,12 +1,14 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
+from random import randint
 from datetime import datetime, timedelta
-from ..models import Master, Order
+from ..models import Master, Order, Skill
 from ..serializers import OrderSerializer
 from ..views import OrderViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
 from rest_framework.reverse import reverse as api_reverse
 from rest_framework.test import APIRequestFactory, APITestCase, force_authenticate
+
 
 class OrdersListTestCase(APITestCase):
     url = api_reverse('order-list')
@@ -92,8 +94,8 @@ class OrdersListTestCase(APITestCase):
         order_count = Order.objects.count()
         user = User.objects.create_user(username='Masha')
         order = {
-            'service': 3,
-            'executor': 2,
+            'service': randint(1, Skill.objects.count()),
+            'executor': randint(1, Master.objects.count()),
             'execution_date': datetime.now() + timedelta(days=1)
         }
         self.client.force_authenticate(user=user)

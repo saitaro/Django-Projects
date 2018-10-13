@@ -13,8 +13,8 @@ class OrdersListTestCase(APITestCase):
 
     def setUp(self):
         master1, master2 = MasterFactory(), MasterFactory()
-        order1_1, order1_2 = OrderFactory(executor=master1), OrderFactory(executor=master1)
-        order2_1, order2_2 = OrderFactory(executor=master2), OrderFactory(executor=master2)
+        OrderFactory(executor=master1), OrderFactory(executor=master1)
+        OrderFactory(executor=master2), OrderFactory(executor=master2)
         self.assertEqual(Master.objects.count(), 2)
         self.assertEqual(Order.objects.count(), 4)
         self.assertEqual(User.objects.count(), 6)

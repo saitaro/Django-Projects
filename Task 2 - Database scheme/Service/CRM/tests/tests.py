@@ -3,8 +3,8 @@ from django.urls import reverse
 from datetime import datetime, timedelta
 from ..models import Master, Order
 from ..serializers import OrderSerializer
-from ..views import MasterViewSet, OrderViewSet, UserViewSet
-from .factories import MasterFactory, OrderFactory, UserFactory, SkillFactory
+from ..views import OrderViewSet
+from .factories import MasterFactory, OrderFactory, UserFactory
 from rest_framework.reverse import reverse as api_reverse
 from rest_framework.test import APIRequestFactory, APITestCase, force_authenticate
 

@@ -82,3 +82,5 @@ class MasterViewSet(ModelViewSet):
 class SkillViewSet(ModelViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+
+

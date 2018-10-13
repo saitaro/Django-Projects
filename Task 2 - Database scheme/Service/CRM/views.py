@@ -31,10 +31,7 @@ class PermissionFilterBackend(BaseFilterBackend):
 class ClientPermission(IsAuthenticated):
     def has_permission(self, request, view):
         user = request.user
-        try:
-            is_master = Master.objects.filter(user=user).exists()
-        except:
-            return False
+        is_master = Master.objects.filter(user=user).exists()
         return not (is_master or user.is_staff)
 
 
@@ -47,7 +44,7 @@ class OrderViewSet(ModelViewSet):
         if self.action in ['detail', 'list']:
             permission_classes = [IsAuthenticated]
         else:
-            permission_classes = [ClientPermission]
+            permission_classes = IsAuthenticated, ClientPermission
         return [permission() for permission in permission_classes]
 
     # def create(self, request, *args, **kwargs):

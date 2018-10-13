@@ -46,9 +46,9 @@ class Master(models.Model):
 class Order(models.Model):
     client = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
     service = models.ForeignKey(Skill, related_name='orders', on_delete=models.CASCADE)
-    executor = models.ForeignKey(Master, related_name='jobs', null=True, on_delete=models.SET_NULL)
+    executor = models.ForeignKey(Master, related_name='jobs', blank=False, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
-    execution_date = models.DateTimeField(null=True)
+    execution_date = models.DateTimeField(blank=False)
     
     def set_execution_date(self, date):
         self.execution_date = date

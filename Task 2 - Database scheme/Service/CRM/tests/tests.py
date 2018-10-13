@@ -1,16 +1,23 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
+from datetime import datetime, timedelta
+from django.db.models import Q
+from json import dumps as json
+import requests
+from django.test import Client
 from re import search
-from ..models import Master, Order
+from ..models import Master, Order, Skill
 from ..serializers import MasterSerializer, OrderSerializer, UserSerializer
 from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory
+from factory import fuzzy
+from rest_framework.reverse import reverse as api_reverse
 from rest_framework.test import (APIRequestFactory, APITestCase,
                                  force_authenticate)
 
-
 class OrdersListTestCase(APITestCase):
-    url = reverse('order-list')
+    url = api_reverse('order-list')
+    # url_create = reverse('order-create')
 
     def setUp(self):
         master1, master2 = MasterFactory(), MasterFactory()
@@ -29,7 +36,7 @@ class OrdersListTestCase(APITestCase):
             master_detail = reverse('master-detail', args=(master.pk,))
             master_request = factory.get(master_detail)
             master_data = MasterSerializer(master, context={'request': master_request}).data
-
+            
             force_authenticate(request, user=master.user)
             response = view(request)
             self.assertEqual(response.status_code, 200)
@@ -47,18 +54,14 @@ class OrdersListTestCase(APITestCase):
             if user.pk in masters:
                 continue
             else:
-                user_url = reverse('user-detail', args=(user.pk,))
-                user_request = factory.get(user_url)
-                user_data = UserSerializer(user, context={'request': user_request}).data
-
                 force_authenticate(request, user=user)
                 response = view(request)
                 self.assertEqual(response.status_code, 200)
 
                 for order in response.data:
-                    self.assertEqual(order['client'], user_data['url'])
+                    self.assertEqual(order['client'], user.username)
 
-    def test_admin_access(self):
+    def test_admin_access(self): 
         view = OrderViewSet.as_view({'get': 'list'})
         user = UserFactory(is_staff=True)
         factory = APIRequestFactory()
@@ -75,4 +78,55 @@ class OrdersListTestCase(APITestCase):
         self.assertEqual(response.json()['detail'], 
                          'Authentication credentials were not provided.')
 
+    def test_user_post(self):
+        user = User.objects.create_user(username='Masha', password='12345')
+        print(User.objects.all())
+        client = Client()
+        response = client.post(self.url, {'username': 'Masha', 'password': '12345'})
+        print(response.status_code)
 
+
+        # r = requests.get('127.0.0.1:8000' + self.url, auth=('user', 'pass'))
+        # r.status_code
+
+
+        # user = UserFactory()
+        # print('USER IS:', user)
+        # factory = APIRequestFactory()
+        # # request = factory.post(self.url, data=None, format='json')
+        # force_authenticate(self.client.request, user=user)
+
+
+        # for order in Order.objects.all():
+        #     print(order)
+
+        # view = OrderViewSet.as_view({'post': 'create'})
+        # user = User.objects.all()[0]
+
+        # master = MasterFactory()
+        # skill = Skill.objects.create(name='Cheeki-Breeki dance')
+        # order = Order.objects.create(
+        #     client=user,
+        #     service=skill,
+        #     executor=master,
+        #     execution_date=datetime.now() + timedelta(days=1)
+        # )
+
+
+        # print(user, master, skill)
+        # factory = APIRequestFactory()
+        # order = OrderSerializer(order, context={'request':factory.post(self.url)}).data
+        # # print(Order.objects.all())
+        # request = factory.post(self.url, data=order, format='json')
+        # force_authenticate(request, user=user)
+        # print(request)
+        # # print(master)
+        # # response = self.client.post(self.url, data, format='json')
+
+        # response = view(request)
+        # print(response)
+
+
+        # print(Order.objects.all())
+        # print(Order.objects.filter(service=data['service']))
+        # self.assertTrue(Order.objects.filter(Q()))

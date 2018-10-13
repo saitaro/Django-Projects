@@ -4,6 +4,8 @@ import factory
 from factory.django import DjangoModelFactory
 from random import randint
 from factory import fuzzy
+from django.utils import timezone
+
 
 class UserFactory(DjangoModelFactory):
     class Meta:
@@ -46,4 +48,5 @@ class OrderFactory(DjangoModelFactory):
     client = factory.SubFactory(UserFactory)
     service = factory.SubFactory(SkillFactory)
     executor = factory.SubFactory(MasterFactory)
+    execution_date = fuzzy.FuzzyDateTime(timezone.now())
     

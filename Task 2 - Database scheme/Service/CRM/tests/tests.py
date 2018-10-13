@@ -1,18 +1,12 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
-from datetime import datetime, timedelta, tzinfo
-from django.db.models import Q
-from json import dumps as json
-from django.test import Client
-from re import search
-from ..models import Master, Order, Skill
-from ..serializers import MasterSerializer, OrderSerializer, UserSerializer
+from datetime import datetime, timedelta
+from ..models import Master, Order
+from ..serializers import OrderSerializer
 from ..views import MasterViewSet, OrderViewSet, UserViewSet
 from .factories import MasterFactory, OrderFactory, UserFactory, SkillFactory
-from factory import fuzzy
 from rest_framework.reverse import reverse as api_reverse
-from rest_framework.test import (APIRequestFactory, APITestCase,
-                                 force_authenticate)
+from rest_framework.test import APIRequestFactory, APITestCase, force_authenticate
 
 class OrdersListTestCase(APITestCase):
     url = api_reverse('order-list')
